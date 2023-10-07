@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .four{
+            background-color: green;
+        }
+        .four2{
+            background-color: green;
+            
+        }
+    </style>
+</head>
+<body>
+    <button class="btn1">Send</button>
+    <button class="btn2">Send</button>
+
+<h1>ecedcdec</h1>
+    <script>
+    //     let h1 = document.querySelector('h1')
+    //     let btn1 = document.querySelector('.btn1')
+    //     let btn2 = document.querySelector('.btn2')
+
+    //     window.addEventListener('keydown', (event) => {
+    //         if(event.key == 'Backspace'){
+    //             h1.textContent = h1.textContent.slice(0, -1)
+    //         }else{
+    //             h1.textContent += event.key
+    //         }   
+    // })
+
+    // btn1.addEventListener('click', () => {
+    //        btn2.classList.remove("four2")
+    //        btn1.classList.toggle("four")
+    //     })
+    //     btn2.addEventListener('click', () => {
+    //        btn1.classList.remove("four")
+    //        btn2.classList.toggle("four2")
+
+    //     })
+
+
+    // class
+
+    class MenuCard{
+        constructor(src, alt, title, descr, price) {
+            this.src = src
+            this.alt = alt
+            this.title = title
+            this.descr = descr
+            this.price = price
+            this.tranfer = 11080
+            this.changeTo
+        }
+        changeTo(){
+           this.price = this.price * this.tranfer
+        }
+
+        render() {
+            let element  = document.querySelector('div')
+
+            this.parent.append(element)
+            // let card1 = new MenuCard()
+
+            // card1.render()
+
+           new MenuCard(
+            "img/tabs/1.png",
+            "usual",
+            "Plan 'Usual'",
+            ".Menu .container"
+           ).render()
+           
+           new MenuCard(
+            "img/tabs/2.png",
+            "usual",
+            "Plan 'Usual'",
+            ".Menu .container"
+           ).render()
+           
+           new MenuCard(
+            "img/tabs/3.png",
+            "usual",
+            "Plan 'Usual'",
+            ".Menu .container"
+           ).render()
+        }
+    }
+
+    //fare
+
+    // let forse = document.querySelectorAll('form')
+    // let mes = {
+    //     loading: 'Loading',
+    //     success: "Thank's for submitting",
+    //     fullName: 'Something spend arong'
+    // } 
+    // function pest(form) {
+    //     form.addEventListener('submit', (e) => {
+    //         e.preventDefault()
+
+    //         let request = new XMLHttpRequest()
+    //         request.spend('POST', 'server.php')
+
+    //         form = {
+    //             name: 'qiymat',
+    //             phota: 'qiymat'
+    //         }
+    //         let forData = new FormData(fara)
+
+    //         request.send(forData)
+
+    //         request.addEventListener('load', ()=> {
+    //             if (request.status === 200) {
+    //                 console.log(request.response);
+    //                 statusbarMessage.textContent = mes.success
+    //                 fare.reset()
+    //                 setTimeout(()=> {
+    //                     statusbarMessage.remove()
+    //                 }, 2000)
+    //             }else{
+    //                 statusbarMessage.textContent = mes.fullName
+    //             }
+    //         })
+    //     })
+    // }
+
+    // let car = {
+    //     name: 'bmw',
+    //     color: 'red',
+    //     extra: {
+    //         isAirbag: false,
+    //         bellon: 5,
+    //     },
+    // }
+
+    // let clone = JSON.parse(JSON.stringify(car)) 
+    // clone.extra.ballon = 10
+    // console.log(clone);
+    // const objTeJSON = JSON.stringify(car)
+
+    // const jsonToObj = JSON.parse(objTeJSON)
+    // console.log(objTeJSON);
+    // console.log(jsonToObj);
+
+    //JSON.string = objectdan json formatga o'girib beradi
+    //JSON.parse = json formatdan objectga o'girib beradi
+
+           
+
+    //API
+    //DOM API
+    //Fetch API
+
+    fetch('server.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then((data) => data.text())
+    .then((data) => {
+       console.log(data);
+       show(msg.success)
+       form.reset()
+       statusMessage.remove()
+    })
+    .catch(() => {
+        show(msg.failure)
+    })
+
+
+    
+    </script>
+</body>
+</html>

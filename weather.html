@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:black;
+        }
+        .box{
+            width: 25%;
+            height: 60vh;
+            border-radius: 10px;
+            background-color: white;
+            
+        }
+        .input{
+            width: 50%;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .box2{
+            width: 100%;
+            height: 10vh;
+            /* border:1px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .btn{
+            width: 15%;
+            height: 43px;
+            border: none;
+            background-color:black;
+            color: white;
+            margin-left: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        h1{
+            position: relative;
+            left: 30px;
+            top: -10px;
+        }
+        .img{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+   <div class="container">
+      <div class="box">
+        <div class="box2">
+            <input class="input" type="text" placeholder="&nbsp Entered country">
+            <button class="btn">Send</button>
+        </div><hr>
+        <div class="img"></div>
+        <h1></h1>
+        <h1 class="h1"></h1>
+        <h1 class="h2"></h1>
+        <h1 class="h3"></h1>
+        <h1 class="h4"></h1>
+
+      </div>
+   </div>
+
+
+
+
+    <script>
+        let input = document.querySelector('.input')
+        let btn = document.querySelector('.btn')
+        let h1 = document.querySelector('h1')
+        let h2 = document.querySelector('.h1')
+        let h3 = document.querySelector('.h2')
+        let h4 = document.querySelector('.h3')
+        let h5 = document.querySelector('.h4')
+        let img = document.querySelector('.img')
+
+
+
+       btn.addEventListener('click', () => {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=49a39b49462b6e8624780044f4a883ec`, {
+            method: 'GET'
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            h1.innerHTML = `Country: ${data.sys.country}`
+            h2.innerHTML = `Description: ${data.weather[0].description}`
+            h3.innerHTML = `Deg: ${data.wind.deg}`
+            h4.innerHTML = `Speed: ${data.wind.speed}`
+            h5.innerHTML = `Temp: ${data.main.temp}`
+
+            img.innerHTML = `<img style="width: 70px;" src="http://openweathermap.org/img/w/${data.weather[0].icon}.png" alt="">`
+            input.value = ''
+        })
+       })   
+    
+    </script>
+</body>
+</html>
